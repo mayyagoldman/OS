@@ -1,0 +1,68 @@
+mayagoldman, omri.asher
+Maya Goldman (321616401), Omri Asher (313195992)
+EX: 2
+
+FILES:
+uthreads.cpp -- user threads library handler
+Makefile - the makefile
+README - this file
+
+REMARKS:
+
+¯\_(^ . ^)_/¯
+
+ANSWERS:
+
+Q1:
+User-level threads allow higher flexibility in scheduling and using custom scheduling algorithms
+e.g we chose to implement the RR algorithm.
+They are useful for a program with multiple threads which run for a very short time
+and need to be switched between them frequently in a particular order.
+User-level threads provide a fine grained scheduling ability on top of the kernel-level scheduler.
+For example, if there are some lists need to be sorted in different threads-
+there are no IO actions - so using user-level threads would be more efficient.
+
+Q2:
+Advantages:
+* Better memory usage when memory gets low.
+  An inactive window is treated as a lower priority by tshe operating system and becomes eligible
+  to be swapped to disk when memory is needed for other processes.
+* If one process is blocked then it will not affect the execution of other processes.
+* The process is isolated. Changes to the parent process do not affect child processes.
+  Isolating a program in a process prevents it from running away with too much CPU time
+  and memory and making the entire browser non-responsive.
+* All above makes it safer to use
+
+Disadvantages:
+* Processes are heavyweight operations with higher fixed cost in memory and resources
+* Context switching between processes is more expensive resulting higher overhead.
+* Inter-process communication is slow as processes have different memory addresses.
+
+
+Q3:
+In this situation - the keyboard sent external interrupt,
+and the OS sent this action data to the shell.
+the shell sent and internal interrupt for the OS to handle.
+then a signal sent (with matching signal number) -
+that causes the app Shotwell to terminate.
+(if the program doesn't know how to handle some signal-
+the OS would terminate it by default).
+
+
+Q4:
+Virtual time is defined as the CPU time perceived by a process as if there were no interruptions.
+Real time represents the total time passed on the system clock regardless of the process,
+while virtual time accounts for the total process CPU time.
+Virtual Time use example:
+In the exercise we used virtual time to coordinate thread switch and stopped the timer.
+Real Time use example:
+External clock event synchronization (also can be used for testing code efficiency).
+
+
+Q5:
+sigsetjmp saves the current stack environment.
+The siglongjmp function restores the stack environment previously saved in env by sigsetjmp.
+The first time sigsetjmp is called the return is 0. The caller will do “normal” operations.
+When the siglongjmp is called, the stack is reset to the point of the sigsetjmp call.
+The return value will be non-zero,
+telling the caller that the event triggered and the caller should do “abort” processing.

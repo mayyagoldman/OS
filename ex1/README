@@ -1,0 +1,26 @@
+mayagoldman, omri.asher
+Maya Goldman (321616401), Omri Asher (313195992)
+EX: 1
+
+FILES:
+osm.h -- osm headers file
+osm.cpp -- osm time measurements code
+results.png - image file with graph of results
+
+REMARKS:
+
+
+ANSWERS:
+
+Assignment 1:
+The program should receive one parameter in order to succeed
+The program creates a directory named "Welcome"
+Inside of it creates a directory named "To"
+Inside of it creates a file with the following text: "(student_name)\n If you haven't read the course guidelines 
+yet --- do it right now!\n(param)"
+
+Where (student_name) - is the student user name (for example mayagoldman).
+And (param) - is the provided parameter.
+
+Assignment 2:
+N/A
